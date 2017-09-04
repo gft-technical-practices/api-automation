@@ -3,7 +3,7 @@
 # Pre Reqs
 apt-get update
 apt-get upgrade
-apt-get install git docker docker-compose openjdk-8-jdk maven
+apt-get install git docker docker-compose openjdk-8-jdk maven awscli
 
 # Docker Configuration
 groupadd docker
@@ -25,3 +25,10 @@ usermod -a -G docker jenkins
 systemctl start jenkins
 systemctl enable jenkins
 systemctl status jenkins
+
+## Configurando AWS e Docker
+su - jenkins -c `aws configure`
+su - jenkins -c `docker login`
+
+## Reiniciando
+systemctl restart jenkins
