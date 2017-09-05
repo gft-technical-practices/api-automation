@@ -5,6 +5,9 @@ apt-get update
 apt-get upgrade
 apt-get install git docker docker-compose openjdk-8-jdk maven awscli
 
+# Install nodejs
+./install_nodejs.sh
+
 # Docker Configuration
 groupadd docker
 chown root:docker /var/run/docker.sock
@@ -26,9 +29,9 @@ systemctl start jenkins
 systemctl enable jenkins
 systemctl status jenkins
 
-## Configurando AWS e Docker
-su - jenkins -c `aws configure`
-su - jenkins -c `docker login`
+## Configurando AWS e Docke
+su - jenkins -c 'aws configure'
+su - jenkins -c 'docker login'
 
 ## Reiniciando
 systemctl restart jenkins
