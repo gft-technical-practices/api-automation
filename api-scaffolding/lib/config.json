@@ -1,0 +1,64 @@
+{
+  "api":{
+    "swagger": "https://raw.githubusercontent.com/gft-technical-practices/workshop-api-development/master/users_api.yaml"
+  },
+  "builders": {
+    "gradle": {
+      "options": "",
+      "task": "build"
+    },
+    "maven": {
+      "options": "",
+      "goal": "install"
+    }
+  },
+  "generator": {
+    "download": "./download",
+    "generated": "./generated",
+    "clients": {
+      "url": "http://54.174.85.10:8000/api/gen/clients",
+      "java": {
+        "options": {
+          "groupId": "com.gft.pratice.workshop",
+          "artifactId": "user-api",
+          "invokerPackage": "com.gft.pratice.workshop",
+          "modelPackage": "model",
+          "apiPackage": "api",
+          "dateLibrary": "java8",
+          "java8": "true",
+          "useGzipFeature": true,
+          "useRuntimeException": true,
+          "library": "okhttp-gson"
+        }
+      },
+      "javascript": {
+        "options": {
+          "usePromises": "true",
+          "emitModelMethods": "true",
+          "emitJSDoc": "true",
+          "useInheritance": "true",
+          "useES6": "true"
+        }
+      }
+    },
+    "servers": {
+      "url": "http://54.174.85.10:8000/api/gen/servers",
+      "spring": {
+        "options": {
+          "groupId": "com.gft.pratice.workshop",
+          "artifactId": "user-api",
+          "invokerPackage": "com.gft.pratice.workshop",
+          "modelPackage": "model",
+          "apiPackage": "api",
+          "dateLibrary": "java8",
+          "java8": "true",
+          "swaggerDocketConfig": true,
+          "library": "spring-boot"
+        }
+      },
+      "nodejs-server": {
+        "options":{}
+      }
+    }
+  }
+}

@@ -7,6 +7,13 @@ apt-get install git docker docker-compose openjdk-8-jdk maven awscli
 
 # Install nodejs
 ./install_nodejs.sh
+npm config set prefix /usr/local
+
+# Install yaml2json global module
+npm install -g swagger yamljs mustache asciify shelljs fs-extra
+
+# Docker Configuration
+npm install -g ../api-scaffolding
 
 # Docker Configuration
 groupadd docker
@@ -29,9 +36,12 @@ systemctl start jenkins
 systemctl enable jenkins
 systemctl status jenkins
 
-## Configurando AWS e Docke
-su - jenkins -c 'aws configure'
-su - jenkins -c 'docker login'
+## Configurando AWS e Docker
+#su - jenkins -c 'aws configure'
+#su - jenkins -c 'docker login'
 
 ## Reiniciando
 systemctl restart jenkins
+
+# APIs base docker images
+docker pull node:alpine
