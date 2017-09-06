@@ -25,6 +25,9 @@ sudo tar xvf $FILE_OUTPUT -C $INSTALL_DIR --strip-components=1
 sudo ln -s /opt/nodejs/bin/node /usr/sbin 
 sudo ln -s /opt/nodejs/bin/npm /usr/sbin
 
+# Config Node Path for Global Modules
+npm config set prefix /usr/local
+echo "export NODE_PATH=/usr/local/lib/node_modules" >> ~/.bashrc && source ~/.bashrc
 
 echo -e "==>> END OF INSTALLATION SCRIPT \n"
 echo -e "Goodbye.\n"
