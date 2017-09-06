@@ -85,7 +85,7 @@ From the Jenkins dashboard select Manage Jenkins and click Manage Plugins. On th
 A Docker Hub account must be create. The user and password will be requested by the config.sh script.
 
 ## Tools
-The tools used for these projects are:
+The tools used for this project are:
 - Swagger CodeGen Docker Image
 - AWS EC2 Container Service
 - Docker
