@@ -24,10 +24,13 @@ sudo tar xvf $FILE_OUTPUT -C $INSTALL_DIR --strip-components=1
 ## Adding path to profile
 sudo ln -s /opt/nodejs/bin/node /usr/sbin 
 sudo ln -s /opt/nodejs/bin/npm /usr/sbin
+sudo ln -s /opt/nodejs/bin/node /usr/local/bin/node
+sudo ln -s /opt/nodejs /usr/bin/node
 
 # Config Node Path for Global Modules
 npm config set prefix /usr/local
-echo "export NODE_PATH=/usr/local/lib/node_modules" >> ~/.bashrc && source ~/.bashrc
+echo "NODE_PATH=/usr/local/lib/node_modules" >> /etc/environment
+source /etc/environment
 
 echo -e "==>> END OF INSTALLATION SCRIPT \n"
 echo -e "Goodbye.\n"

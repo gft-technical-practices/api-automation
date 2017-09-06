@@ -57,6 +57,9 @@ module.exports.create = (spec, framework, type, options) => {
           path: target
         }))
       return path.resolve(target);
+    }).then((target) => {
+      // Copying Docker File
+      fs.copySync(path.resolve(__dirname,'./templates/docker/node/Dockerfile'), target + '/Dockerfile');
     })
     .catch((err) => {
       tools.shell.echo(err);
