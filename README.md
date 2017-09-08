@@ -80,7 +80,7 @@ To install and configure the Jenkins plugins required to build a Docker image an
 From the Jenkins dashboard select Manage Jenkins and click Manage Plugins. On the Available tab, search for and select the following plugins:
 - [CloudBees Docker Build and Publish](https://plugins.jenkins.io/docker-build-publish)
 - [Github plugin](https://wiki.jenkins.io/display/JENKINS/Github+Plugin)
-- [EnvInject Plugin](https://plugins.jenkins.io/envinject-api)
+- [Environment Injector Plugin](https://plugins.jenkins.io/envinject)
 
 ### Docker Hub
 A Docker Hub account must be create. The user and password will be requested by the config.sh script.

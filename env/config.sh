@@ -27,6 +27,11 @@ echo deb http://pkg.jenkins.io/debian-stable binary/ | tee /etc/apt/sources.list
 apt-get update
 apt-get install jenkins
 
+# Jenkins Configuration
+chown root:jenkins -R /usr/bin/node
+chown root:jenkins -R /usr/local/lib/node_modules
+usermod -a -G jenkins $USER
+
 # Add the jenkins user to the docker group. Permission to create images
 usermod -a -G docker jenkins
 
@@ -37,7 +42,7 @@ systemctl status jenkins
 
 ## Configurando AWS e Docker
 #su - jenkins -c 'aws configure'
-su - jenkins -c 'docker login'
+#su - jenkins -c 'docker login'
 
 ## Reiniciando
 systemctl restart jenkins
