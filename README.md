@@ -81,6 +81,7 @@ From the Jenkins dashboard select Manage Jenkins and click Manage Plugins. On th
 - [CloudBees Docker Build and Publish](https://plugins.jenkins.io/docker-build-publish)
 - [Github plugin](https://wiki.jenkins.io/display/JENKINS/Github+Plugin)
 - [Environment Injector Plugin](https://plugins.jenkins.io/envinject)
+- [Generic Webhook Trigger Plugin](https://wiki.jenkins.io/display/JENKINS/Generic+Webhook+Trigger+Plugin)
 
 ### Docker Hub
 A Docker Hub account must be create. The user and password will be requested by the config.sh script.
