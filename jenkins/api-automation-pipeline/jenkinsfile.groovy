@@ -9,11 +9,7 @@ node {
       git 'https://github.com/api-design-automation/user-api'
 
       // Convert Swagger Definition from YAML to JSON
-      sh '''#!/bin/bash
-
-            # Convert YAML Swagger to JSON Swagger
-            yaml2json ./api.yaml --pretty > ./api.json
-        '''    
+      sh './convert_yaml_json.sh'    
    }
 
    stage('Scaffolding') {
