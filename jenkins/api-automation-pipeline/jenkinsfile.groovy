@@ -11,41 +11,20 @@ node {
             git "${env.REPO_URL}"
 
             // Permission to execute
-            sh "chmod +x -R ${env.WORKSPACE}/../api-automation@script/jenkins/api-automation-pipeline"
+            sh "chmod +x -R ${env.WORKSPACE}/../${env.JOB_NAME}@script/jenkins/api-automation-pipeline"
 
             // Convert Swagger Definition from YAML to JSON
-            sh "${env.WORKSPACE}/../api-automation@script/jenkins/api-automation-pipeline/convert_yaml_json.sh"    
+            sh "${env.WORKSPACE}/../${env.JOB_NAME}@script/jenkins/api-automation-pipeline/convert_yaml_json.sh"    
         }
 
         stage('Scaffolding') {
             // Run scripts to scaffolding the project
             withEnv(['NODE_PATH=/usr/local/lib/node_modules']) {
-                sh '''#!/usr/bin/env node
-                const shell = require(\'shelljs\');
-                const swg = require(\'api-scaffolding\');
-                const fs = require(\'fs-extra\');
-                const path = require(\'path\');
-                const asciify = require(\'asciify\');
-
-                const spec = fs.readJsonSync(path.resolve(\'./api.json\'));
-
-                // Criando as apis na versão server
-                shell.echo(swg.createServer(spec, \'nodejs-server\'));
-
-
-                asciify(\'Scaffolding\', {font:\'small\'}, (err, res) => {shell.echo(res)});
-                asciify(\'Create APIs\', {font:\'standard\', color: \'blue\'}, (err, res) => {shell.echo(res)});
-                '''
+                sh "${env.WORKSPACE}/../${env.JOB_NAME}@script/jenkins/api-automation-pipeline/scaffolding.sh"
             }
             
-
             // Clean
-            sh '''#!/bin/bash
-                    mv ${WORKSPACE}/nodejs-server-server/* ${WORKSPACE}
-                    rm -rf ${WORKSPACE}/nodejs-server-server
-                    rm -rf ${WORKSPACE}/download
-                '''
-
+            sh "${env.WORKSPACE}/../${env.JOB_NAME}@script/jenkins/api-automation-pipeline/clean.sh"
         }
 
         stage('Build') {
