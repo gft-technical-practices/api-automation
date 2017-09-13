@@ -18,7 +18,8 @@ node {
 
    stage('Scaffolding') {
        // Run scripts to scaffolding the project
-       sh '''#!/usr/bin/env node
+       withEnv(['NODE_PATH=\'/usr/local/lib/node_modules\'']) {
+            sh '''#!/usr/bin/env node
             const shell = require(\'shelljs\');
             const swg = require(\'api-scaffolding\');
             const fs = require(\'fs-extra\');
@@ -34,6 +35,8 @@ node {
             asciify(\'Scaffolding\', {font:\'small\'}, (err, res) => {shell.echo(res)});
             asciify(\'Create APIs\', {font:\'standard\', color: \'blue\'}, (err, res) => {shell.echo(res)});
           '''
+       }
+       
 
         // Clean
         sh '''#!/bin/bash
