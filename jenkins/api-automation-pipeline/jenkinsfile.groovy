@@ -10,6 +10,9 @@ node {
             // Get some code from a GitHub repository
             git "${env.REPO_URL}"
 
+            // Permission to execute
+            sh "chmod +x -R ${env.WORKSPACE}/../api-automation@script/jenkins/api-automation-pipeline"
+
             // Convert Swagger Definition from YAML to JSON
             sh "${env.WORKSPACE}/../api-automation@script/jenkins/api-automation-pipeline/convert_yaml_json.sh"    
         }
