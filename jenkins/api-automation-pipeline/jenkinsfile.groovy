@@ -1,7 +1,7 @@
 node {
     try {
         notifyBuild('STARTED')
-        echo "${env.WORKSPACE}"
+        
         stage('Preparation') {
             
             // Clean Workspace
@@ -11,11 +11,7 @@ node {
             git "${env.REPO_URL}"
 
             // Convert Swagger Definition from YAML to JSON
-            sh '''#!/bin/bash
-
-                # Convert YAML Swagger to JSON Swagger
-                yaml2json ./api.yaml --pretty > ./api.json
-            '''    
+            sh "${env.WORKSPACE}/../api-automation@script/jenkins/api-automation-pipeline/convert_yaml_json.sh"    
         }
 
         stage('Scaffolding') {
