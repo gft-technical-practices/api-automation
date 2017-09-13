@@ -78,9 +78,8 @@ A [service must be create](http://docs.aws.amazon.com/AmazonECS/latest/developer
 To install and configure the Jenkins plugins required to build a Docker image and publish it to a Docker registry (DockerHub in our case). We’ll also need a plugin to interact with the code repository of our choice, GitHub in our case.
  
 From the Jenkins dashboard select Manage Jenkins and click Manage Plugins. On the Available tab, search for and select the following plugins:
-- [CloudBees Docker Build and Publish](https://plugins.jenkins.io/docker-build-publish)
+- [Slack Notification Plugin](https://plugins.jenkins.io/slack)
 - [Github plugin](https://wiki.jenkins.io/display/JENKINS/Github+Plugin)
-- [Environment Injector Plugin](https://plugins.jenkins.io/envinject)
 - [Generic Webhook Trigger Plugin](https://wiki.jenkins.io/display/JENKINS/Generic+Webhook+Trigger+Plugin)
 
 Configuration:
