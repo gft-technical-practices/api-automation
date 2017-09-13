@@ -48,7 +48,7 @@ node {
    }
 
    stage('Build') {
-       docker.withRegistry('https://registry.hub.docker.com', 'rmzoni-dockerhub') {
+       docker.withRegistry('https://registry.hub.docker.com', 'dockerhub') {
             def customImage = docker.build("rmzoni/${env.API_NAME}:${env.BUILD_ID}")
             customImage.push()
        }
