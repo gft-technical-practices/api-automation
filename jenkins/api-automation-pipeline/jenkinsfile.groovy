@@ -6,7 +6,7 @@ node {
       cleanWs()
       
       // Get some code from a GitHub repository
-      git 'https://github.com/api-design-automation/user-api'
+      git '${env.REPO_URL}'
 
       // Convert Swagger Definition from YAML to JSON
       sh '''#!/bin/bash
