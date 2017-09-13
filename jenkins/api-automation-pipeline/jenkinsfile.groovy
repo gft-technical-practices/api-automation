@@ -1,6 +1,7 @@
 node {
     try {
         notifyBuild('STARTED')
+        echo "${env.WORKSPACE}"
         stage('Preparation') {
             
             // Clean Workspace
