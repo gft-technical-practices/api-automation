@@ -18,7 +18,7 @@ node {
 
    stage('Scaffolding') {
        // Run scripts to scaffolding the project
-       withEnv(['NODE_PATH=\'/usr/local/lib/node_modules\'']) {
+       withEnv(['NODE_PATH=/usr/local/lib/node_modules']) {
             sh '''#!/usr/bin/env node
             const shell = require(\'shelljs\');
             const swg = require(\'api-scaffolding\');
