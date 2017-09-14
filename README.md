@@ -72,7 +72,6 @@ A [service must be create](http://docs.aws.amazon.com/AmazonECS/latest/developer
 - Task Defition:  swagger-codegen-app-static
 - Desired count: 1
 - Service Role: ecsServiceRole
- 
 
 ### Jenkins Prequirements
 To install and configure the Jenkins plugins required to build a Docker image and publish it to a Docker registry (DockerHub in our case). We’ll also need a plugin to interact with the code repository of our choice, GitHub in our case.
@@ -84,6 +83,9 @@ From the Jenkins dashboard select Manage Jenkins and click Manage Plugins. On th
 
 Configuration:
 - CORS must be disable for Jenkins API (Alow GitHub WebHook)
+- A "dockerhub" credential must be create to access docker hub registry
+- Global Slack Notifier Setting must be configurated
+  - A slack token must bu issued. [Slack Legacy Tokens](https://api.slack.com/custom-integrations/legacy-tokens)
 
 ### Docker Hub
 A Docker Hub account must be create. The user and password will be requested by the config.sh script.
@@ -96,3 +98,13 @@ The tools used for this project are:
 - Custom API-Scaffolding (Node.JS Application)
 - Jenkins 2.0
 
+
+## Git Hub Organization - API Design
+An organization was created in GitHub to centralized the repositories that are going to keep the API contracts written in Swagger 2.0.
+
+The organization is [API Design Automation](https://github.com/orgs/api-design-automation/dashboard).
+
+This organization has a configured webhook to start the api-automation-pipeline as Jenkins Job.
+
+## API Automation Pipeline
+TODO
