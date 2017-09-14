@@ -3,7 +3,7 @@
 # Pre Reqs
 apt-get update
 apt-get upgrade
-apt-get install git docker docker-compose openjdk-8-jdk maven awscli
+apt-get install git docker docker-compose openjdk-8-jdk maven awscli jq
 
 # Install nodejs
 ./install_nodejs.sh

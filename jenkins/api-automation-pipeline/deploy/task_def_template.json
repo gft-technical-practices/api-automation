@@ -1,0 +1,13 @@
+{
+    "family": "%API_NAME%",
+    "containerDefinitions": [{
+        "image": "rmzoni/%API_NAME%:%BUILD_NUMBER%",
+        "name": "%API_NAME%",
+        "cpu": 10,
+        "memory": 256,
+        "essential": true,
+        "portMappings": [{
+            "containerPort": 8243
+        }]
+    }]
+}
