@@ -20,7 +20,7 @@ TASK_REVISION=`aws ecs describe-task-definition --region ${REGION} --task-defini
 
 # Check if the service exists
 SERVICE_EXISTS=`aws ecs describe-services --region ${REGION} --cluster ${ECS_CLUSTER} --services ${SERVICE_NAME} | jq '.services[0].status'`
-if [[ ${SERVICE_EXISTS} == null]  || [${SERVICE_EXISTS} == "INACTIVE"]]; then
+if [[ ${SERVICE_EXISTS} == null] || [${SERVICE_EXISTS} == "INACTIVE"]] then
 
     ## TODO Create Load Balancing
     # Creating the service instance. Running the docker image
