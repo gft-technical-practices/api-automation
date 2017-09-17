@@ -41,8 +41,8 @@ systemctl enable jenkins
 systemctl status jenkins
 
 ## Configurando AWS e Docker
-#su - jenkins -c 'aws configure'
-#su - jenkins -c 'docker login'
+su - jenkins -c 'aws configure'
+su - jenkins -c 'docker login'
 
 ## Reiniciando
 systemctl restart jenkins

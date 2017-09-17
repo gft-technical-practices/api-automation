@@ -7,7 +7,7 @@ SERVICE_NAME="${API_NAME}-service"
 ECS_CLUSTER=default-apiautomation
 
 # Replacing the macros definitions in taks definition file
-sed -e "s;%API_NAME%;${API_NAME};g" -e "s;%BUILD_NUMBER%;${BUILD_NUMBER};g" task_def_template.json > ${API_NAME}-${BUILD_NUMBER}.json
+sed -e "s;%API_NAME%;${API_NAME};g" -e "s;%BUILD_NUMBER%;${BUILD_NUMBER};g" ./task_def_template.json > ./${API_NAME}-${BUILD_NUMBER}.json
 
 # TODO Set Port
 
