@@ -7,12 +7,12 @@ SERVICE_NAME="${API_NAME}-service"
 ECS_CLUSTER=default-apiautomation
 
 # Replacing the macros definitions in taks definition file
-sed -e "s;%API_NAME%;${API_NAME};g" -e "s;%BUILD_NUMBER%;${BUILD_NUMBER};g" ./task_def_template.json > ./${API_NAME}-${BUILD_NUMBER}.json
+sed -e "s;%API_NAME%;${API_NAME};g" -e "s;%BUILD_NUMBER%;${BUILD_NUMBER};g" ${WORKSPACE}/../${JOB_NAME}@script/jenkins/api-automation-pipeline/deploy/task_def_template.json > ${WORKSPACE}/${API_NAME}-${BUILD_NUMBER}.json
 
 # TODO Set Port
 
 # Registering the task definition
-aws ecs register-task-definition --cli-input-json file://${API_NAME}-${BUILD_NUMBER}.json
+aws ecs register-task-definition --cli-input-json file://${WORKSPACE}/${API_NAME}-${BUILD_NUMBER}.json
 
 # Getting the task revision
 TASK_REVISION=`aws ecs describe-task-definition --task-definition ${API_NAME} | jq '.taskDefinition.revision'`
