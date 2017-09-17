@@ -19,8 +19,8 @@ aws ecs register-task-definition --region ${REGION} --cli-input-json file://${WO
 TASK_REVISION=`aws ecs describe-task-definition --region ${REGION} --task-definition ${API_NAME} | jq '.taskDefinition.revision'`
 
 # Check if the service exists
-SERVICE_EXISTS=`aws ecs describe-services --region ${REGION} --cluster ${ECS_CLUSTER} --services ${SERVICE_NAME} | jq '.services[0].serviceName'`
-if [ ${SERVICE_EXISTS} != null ]; then
+SERVICE_EXISTS=`aws ecs describe-services --region ${REGION} --cluster ${ECS_CLUSTER} --services ${SERVICE_NAME} | jq '.services[0].status'`
+if [ ${SERVICE_EXISTS} != null  ] && [${SERVICE_EXISTS} != "INACTIVE"]; then
     
     # Get the desire count instance for this service
     DESIRED_COUNT=`aws ecs describe-services --region ${REGION} --cluster ${ECS_CLUSTER} --services ${SERVICE_NAME} | jq '.services[0].desiredCount'`
