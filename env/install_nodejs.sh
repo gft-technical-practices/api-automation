@@ -2,7 +2,7 @@
 
 ### vars
 VERBOSE_FILE=$HOME/nodejs-install.log
-FILE_NAME=node-v8.4.0-linux-x64.tar.xz
+FILE_NAME=node-v8.5.0-linux-x64.tar.gz
 FILE_URL=https://nodejs.org/dist/latest-v8.x/$FILE_NAME
 FILE_OUTPUT=$HOME/$FILE_NAME
 INSTALL_DIR=/opt/nodejs
