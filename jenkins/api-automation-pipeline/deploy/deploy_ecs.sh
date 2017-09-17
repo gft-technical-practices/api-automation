@@ -20,7 +20,13 @@ TASK_REVISION=`aws ecs describe-task-definition --region ${REGION} --task-defini
 
 # Check if the service exists
 SERVICE_EXISTS=`aws ecs describe-services --region ${REGION} --cluster ${ECS_CLUSTER} --services ${SERVICE_NAME} | jq '.services[0].status'`
-if [ ${SERVICE_EXISTS} != null  ] && [${SERVICE_EXISTS} != "INACTIVE"]; then
+if [ ${SERVICE_EXISTS} == null  ] || [${SERVICE_EXISTS} == "INACTIVE"]; then
+
+    ## TODO Create Load Balancing
+    # Creating the service instance. Running the docker image
+    aws ecs create-service --region ${REGION} --cluster ${ECS_CLUSTER} --service-name ${SERVICE_NAME} --task-definition ${API_NAME}:${TASK_REVISION} --desired-count 1    
+    
+else
     
     # Get the desire count instance for this service
     DESIRED_COUNT=`aws ecs describe-services --region ${REGION} --cluster ${ECS_CLUSTER} --services ${SERVICE_NAME} | jq '.services[0].desiredCount'`
@@ -31,8 +37,4 @@ if [ ${SERVICE_EXISTS} != null  ] && [${SERVICE_EXISTS} != "INACTIVE"]; then
     # Update the Service definition
     aws ecs update-service --region ${REGION} --cluster ${ECS_CLUSTER} --service ${SERVICE_NAME} --task-definition ${API_NAME}:${TASK_REVISION} --desired-count ${DESIRED_COUNT}
 
-else
-    ## TODO Create Load Balancing
-    # Creating the service instance. Running the docker image
-    aws ecs create-service --region ${REGION} --cluster ${ECS_CLUSTER} --service-name ${SERVICE_NAME} --task-definition ${API_NAME}:${TASK_REVISION} --desired-count 1
 fi  
