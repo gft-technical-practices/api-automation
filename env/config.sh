@@ -48,4 +48,5 @@ systemctl status jenkins
 systemctl restart jenkins
 
 # APIs base docker images
+systemctl restart docker
 docker pull node:alpine

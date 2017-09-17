@@ -106,5 +106,56 @@ The organization is [API Design Automation](https://github.com/orgs/api-design-a
 
 This organization has a configured webhook to start the api-automation-pipeline as Jenkins Job.
 
+## Jenkins Machine Configuration
+Follow the intstruction in a Ubuntu Linux Machine to configure the Jenkins Environment:
+- Install Git
+```sh
+sudo apt-get install git
+```
+- Clone this project
+```sh
+git clone https://github.com/gft-technical-practices/api-automation
+```
+- Run the the Environment Configuration Script
+```sh
+cd api-automation/env
+sudo ./config.sh
+```
+  - Some manual configuration is going to be required
+  - Configura Docker Login
+  - Configure AWS Credetials for AWS CLI usage
+
+- Configure Jenkins
+  - Set Adm Password located in /var/lib/jenkins/secrets/initialAdminPassword
+  - Install Selected Plugins (Commons)
+  - Configure an Admistrator User
+
+- Configure Docker Credential in Jenkins
+  - Create username / password credential to docker hub registry with this name "dockerhub"
+
+- Configure Jenkins for Slack Notification
+  - Install Slack Notification Plugin
+  - Create a secret text credential using the an slack legacy token named "slacktoken"
+  - In the system configuration configure the global slack notification setting
+
+- Create the API Automation Pipeline
+  - Create a new job names "api-automation"
+  - This job must be a pipeline
+  - Create a parametrized job
+    - REPO_URL - GIT Repository URL
+    - API_NAME - The Repository Name as the API Name
+  - Set a Generic Webhook Trigger
+  - Configure the job to allows remotely builds
+  - Set the pipeline to use a SCM
+    - Use Git
+    - Configure the repo as https://github.com/gft-technical-practices/api-automation
+    - The script path must be ./jenkins/api-automation-pipeline/jenkinsfile.groovy
+    - The Lightweight checkout must be unchecked
+
+- Configure a GitHub Webhook
+  - In the github project or a github organization a webhook must be configure to start the jenkins job
+
+
+
 ## API Automation Pipeline
 TODO
