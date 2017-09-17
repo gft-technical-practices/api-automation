@@ -1,0 +1,13 @@
+{
+    "family": "user-api",
+    "containerDefinitions": [{
+        "image": "rmzoni/user-api:2",
+        "name": "user-api",
+        "cpu": 10,
+        "memory": 256,
+        "essential": true,
+        "portMappings": [{
+            "containerPort": 8243
+        }]
+    }]
+}

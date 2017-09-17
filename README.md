@@ -156,6 +156,5 @@ sudo ./config.sh
   - In the github project or a github organization a webhook must be configure to start the jenkins job
 
 
-
 ## API Automation Pipeline
 TODO

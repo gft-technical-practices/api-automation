@@ -34,6 +34,11 @@ node {
             }
             
         }
+
+        stage('Deploy') {
+            sh "${env.WORKSPACE}/../${env.JOB_NAME}@script/jenkins/api-automation-pipeline/deploy/deploy_ecs.sh"
+        }
+
     } catch (e) {
         // If there was an exception thrown, the build failed
         currentBuild.result = "FAILED"
