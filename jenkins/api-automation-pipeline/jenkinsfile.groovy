@@ -36,7 +36,7 @@ node {
         }
 
         stage('Deploy') {
-            withCredentials([usernamePassword(credentialsId: 'awscredential', usernameVariable: 'AWS_ACCESS_KEY_ID', passwordVariable: 'AWS_SECRET_ACCESS_KEY)]) {
+            withCredentials([usernamePassword(credentialsId: 'awscredential', usernameVariable: 'AWS_ACCESS_KEY_ID', passwordVariable: 'AWS_SECRET_ACCESS_KEY')]) {
                 sh "${env.WORKSPACE}/../${env.JOB_NAME}@script/jenkins/api-automation-pipeline/deploy/deploy_ecs.sh"
             }
         }
