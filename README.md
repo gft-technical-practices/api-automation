@@ -133,6 +133,9 @@ sudo ./config.sh
 - Configure Docker Credential in Jenkins
   - Create username / password credential to docker hub registry with this name "dockerhub"
 
+- Configure AWS Credential in Jenkins
+  - Create username / password credential to AWS User Key with this name "awscredential"
+
 - Configure Jenkins for Slack Notification
   - Install Slack Notification Plugin
   - Create a secret text credential using the an slack legacy token named "slacktoken"
