@@ -11,6 +11,19 @@ Follow the [Setting Up with Amazon ECS](http://docs.aws.amazon.com/AmazonECS/lat
 
 Launch an Amazon EC2 instance using the Amazon Linux AMI and install and configure the required packages. Make sure that the security group you select for your instance allows traffic on ports TCP/22 and TCP/8080.
 
+#### IAM User for AWS CLI
+A user with access to ECS trhough AWS CLI is going to be required:
+- The user must have an AWS Access Key
+- The user must have these policies permissions:
+  - AmazonEC2ContainerRegistryReadOnly
+  - AmazonEC2ContainerServiceEventsRole
+  - AmazonEC2ContainerServiceAutoscaleRole
+  - AmazonEC2ContainerRegistryFullAccess
+  - AmazonEC2ContainerServiceFullAccess
+  - AmazonEC2ContainerRegistryPowerUser
+  - AmazonEC2ContainerServiceforEC2Role
+  - AmazonEC2ContainerServiceRole
+
 #### EC2 Container Service - Cluster
 A ECS Cluster must be create with these following constraints
 - [ECS Cluster Name](http://docs.aws.amazon.com/AmazonECS/latest/developerguide/create_cluster.html): default-apiautomation
@@ -134,7 +147,7 @@ sudo ./config.sh
   - Create username / password credential to docker hub registry with this name "dockerhub"
 
 - Configure AWS Credential in Jenkins
-  - Create username / password credential to AWS User Key with this name "awscredential"
+  - Create username / password credential to AWS User Access Key with this name "awscredential"
 
 - Configure Jenkins for Slack Notification
   - Install Slack Notification Plugin
