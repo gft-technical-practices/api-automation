@@ -6,9 +6,11 @@ set -x #echo on
 SERVICE_NAME="${API_NAME}-service"
 ECS_CLUSTER=default-apiautomation
 REGION=us-east-1
+API_FILE="api.json"
+
 
 # Replacing the macros definitions in taks definition file
-sed -e "s;%API_NAME%;${API_NAME};g" -e "s;%BUILD_NUMBER%;${BUILD_NUMBER};g" ${WORKSPACE}/../${JOB_NAME}@script/jenkins/api-automation-pipeline/deploy/task_def_template.json > ${WORKSPACE}/${API_NAME}-${BUILD_NUMBER}.json
+sed -e "s;%API_NAME%;${API_NAME};g" -e "s;%BUILD_NUMBER%;${BUILD_NUMBER};g" -e "s;%API_PORT%;${API_PORT};g" ${WORKSPACE}/../${JOB_NAME}@script/jenkins/api-automation-pipeline/deploy/task_def_template.json > ${WORKSPACE}/${API_NAME}-${BUILD_NUMBER}.json
 
 # TODO Set Port
 
