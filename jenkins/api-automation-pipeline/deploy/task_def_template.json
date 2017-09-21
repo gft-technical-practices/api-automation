@@ -7,7 +7,7 @@
         "memory": 256,
         "essential": true,
         "portMappings": [{
-            "containerPort": 8243
+            "containerPort": %API_PORT%
         }]
     }]
 }
