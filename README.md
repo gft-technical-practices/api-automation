@@ -160,6 +160,7 @@ sudo ./config.sh
   - Create a parametrized job
     - REPO_URL - GIT Repository URL
     - API_NAME - The Repository Name as the API Name
+    - TAG_NAME - The name of the tag
   - Set a Generic Webhook Trigger
   - Configure the job to allows remotely builds
   - Set the pipeline to use a SCM
@@ -170,7 +171,7 @@ sudo ./config.sh
 
 - Configure a GitHub Webhook
   - In the github project or a github organization a webhook must be configure to start the jenkins job
-
+  - The webhook must be emit from a tag creation
 
 ## API Automation Pipeline
 TODO
