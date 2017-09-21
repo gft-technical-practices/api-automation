@@ -8,7 +8,7 @@ node {
             cleanWs()
             
             // Get some code from a GitHub repository
-            git branch: "${env.TAG_NAME}", url: "${env.REPO_URL}"
+            git tag: "${env.TAG_NAME}", url: "${env.REPO_URL}"
             
            
             // Permission to execute
