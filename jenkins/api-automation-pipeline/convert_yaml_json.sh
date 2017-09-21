@@ -2,4 +2,5 @@
 set -x #echo on
 
 # Convert YAML Swagger to JSON Swagger
-yaml2json ./api.yaml --pretty > ./api.json
+API_FILE_NAME=`ls | grep .yaml | head -n 1`
+yaml2json ./${API_FILE_NAME}.yaml --pretty > ./api.json
