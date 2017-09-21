@@ -8,8 +8,9 @@ node {
             cleanWs()
             
             // Get some code from a GitHub repository
-            git "${env.REPO_URL}"
-            git checkout "${env.TAG_NAME}"
+            git branch: "${env.TAG_NAME}", url: "${env.REPO_URL}"
+            
+           
             // Permission to execute
             sh "chmod +x -R ${env.WORKSPACE}/../${env.JOB_NAME}@script/jenkins/api-automation-pipeline"
 
