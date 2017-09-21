@@ -11,6 +11,7 @@ API_FILE="api.json"
 # Getting the swagger port
 HOST_SWAGGER=`jq '.host' api.json`
 HOST_SWAGGER="${HOST_SWAGGER#\"}"
+HOST_SWAGGER="${HOST_SWAGGER#\"}"
 ARR_HOST_SWAGGER=(`echo $HOST_SWAGGER | cut -d ":"  --output-delimiter=" " -f 1-`)
 API_PORT=${ARR_HOST_SWAGGER[1]}
 if [ ${API_PORT} == null ] || [ ${API_PORT} == '' ]; then
