@@ -174,4 +174,27 @@ sudo ./config.sh
   - The webhook must be emit from a tag creation
 
 ## API Automation Pipeline
-TODO
+The API Automation pipeline objective is to receive a an WebHook Tag Creation event, this event contains the a API Swagger file definition in git repository.
+
+After receiving the event the job:
+- Scaffoldes the project from the API Swagger definition file
+- Create a docker image from this new scaffolded project
+- Publish a new docker instance to the AWS ECS
+
+### Preparation
+- Clean the Workspace
+- Git clone the current tag
+- Convert the API Swagger YAML to JSON
+
+### Scaffolding
+- Create a Node.JS Scaffolded project
+
+### Build
+- Build a docker Node.JS image from the scaffolded project
+- Publish this image to the Docker Hub Registry
+
+### Deploy
+- Create new task definition revision in AWS ECS
+- Verifies if a service definition exists
+-- If exists, update to the new task revision
+-- If not exists, create a new service definition using the current task revision
