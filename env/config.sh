@@ -22,10 +22,8 @@ systemctl start docker
 systemctl enable docker
 
 # Install Jenkins
-wget -q -O - https://pkg.jenkins.io/debian/jenkins-ci.org.key | apt-key add -
-echo deb http://pkg.jenkins.io/debian-stable binary/ | tee /etc/apt/sources.list.d/jenkins.list
-apt-get update
-apt-get install jenkins
+wget https://pkg.jenkins.io/debian-stable/binary/jenkins_2.89.2_all.deb
+dpkg -i jenkins_2.89.2_all.deb
 
 # Jenkins Configuration
 chown root:jenkins -R /usr/bin/node
