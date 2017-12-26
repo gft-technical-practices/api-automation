@@ -26,7 +26,7 @@ A user with access to ECS trhough AWS CLI is going to be required:
 
 #### EC2 Container Service - Cluster
 A ECS Cluster must be create with these following constraints
-- [ECS Cluster Name](http://docs.aws.amazon.com/AmazonECS/latest/developerguide/create_cluster.html): default-apiautomation
+- [ECS Cluster Name](http://docs.aws.amazon.com/AmazonECS/latest/developerguide/create_cluster.html): default
 
 #### ECS Container Service - Swagger CodeGen Instance
 A [task definition must be create](http://docs.aws.amazon.com/AmazonECS/latest/developerguide/create-task-definition.html) for the Swagger CodeGen Docker Instance:

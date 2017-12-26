@@ -4,7 +4,7 @@ set -x #echo on
 #API_NAME="user-api"
 #BUILD_NUMBER="2"
 SERVICE_NAME="${API_NAME}-service"
-ECS_CLUSTER=default-apiautomation
+ECS_CLUSTER=default
 REGION=us-east-1
 API_FILE="api.json"
 
