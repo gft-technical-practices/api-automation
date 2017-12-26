@@ -16,7 +16,7 @@
     "download": "./download",
     "generated": ".",
     "clients": {
-      "url": "http://localhost:9090/api/gen/clients",
+      "url": "http://localhost:9000/api/gen/clients",
       "java": {
         "options": {
           "groupId": "com.gft.pratice.workshop",
@@ -42,7 +42,7 @@
       }
     },
     "servers": {
-      "url": "http://localhost:9090/api/gen/servers",
+      "url": "http://localhost:9000/api/gen/servers",
       "spring": {
         "options": {
           "groupId": "com.gft.pratice.workshop",

@@ -159,8 +159,11 @@ sudo ./config.sh
   - This job must be a pipeline
   - Create a parametrized job
     - REPO_URL - GIT Repository URL
+      - $.repository.clone_url
     - API_NAME - The Repository Name as the API Name
+      - $.repository.name
     - TAG_NAME - The name of the tag
+      - $.ref
   - Set a Generic Webhook Trigger
   - Configure the job to allows remotely builds
   - Set the pipeline to use a SCM
